@@ -1,0 +1,52 @@
+Task0:
+The run time complexity of accessing python list is O(1) get length is also O(1)
+
+Task1:
+- get_freq has a for loop iterating over length of texts (a list of n
+      lines from texts.csv) and another list of calls (a list of m lines from
+          calls.csv). TIme complexities of those loops are of O(n) and O(m) respectively.
+        Whithin each loop if condition checks a hashtable (python dictionary)
+    called "phone_numbers". The worst case look up time is of O(1) and hence they
+      do not contribute to the complexity of for loops.
+        - find unique function iterates over the dictionary of length n items. Time
+          complexity of this operation would be O(n). List append is O(1)
+    - Aligns with python profile output.
+
+Task2:
+- call_duration iterates over list of calls. That for loop is O(n).
+- Within for loop the if conditions check for items in a dictionary. Python
+hashtable look up is O(1) profiler does not show any hash conflicts.
+- Find_longest function uses sorted. Unlike sort, sorted in python is not in place.
+Time complextiy of sorted is o(n log n). While it also requires O(n) space complexity.
+It is also iterating over a list O(n).
+
+Task3:
+- extract_cx_rx: Iterates over a list of calls, which is O(n). On top of that
+the string slice is basically a copy and would do O(m), where m is the
+length of string. Comparing to area code is O(1).
+- extrace_codes: iterates over a list O(n). Regex is basically a string
+matching. And the complexity can be O(m), where m is the length of string.
+- Find_unique: Basically iterating over a list of codes O(n) and addint it to a
+hash table O(1).
+- sort_and_print: Python's inplace sort method is O(n log n). Printing
+iterates over a list O(n).
+- Find_fix2fix: Iterates over a list O(n). Slicing of the string is O(m), m is
+length of string.
+
+Task4:
+- find_telem: The for loops iterate over list of calls and texts respectively.
+  They can be O(n) and O(m) where n is length  of calls and m is lengths of texts.
+  It also has another loop that iterates over a call_tx list O(p) and the if
+  condition checks for a number in concatenated list of call_ex and text O(q).
+  That for loop has overall complexity of O(p*q). List append operations are O(1).
+  - unique_telem: Iterates over list O(n) and creates a hash table O(1).
+  - sort_and_print: An in place sort operation over a list O(n log n). And the
+  for loop iterates over a sorted list O(m).
+
+
+
+
+
+
+
+
