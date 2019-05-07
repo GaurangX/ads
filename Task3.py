@@ -48,15 +48,16 @@ The percentage should have 2 decimal digits
 Run time complexity:
   - extract_cx_rx: Iterates over a list of calls, which is O(n). On top of that
   the string slice is basically a copy and would do O(m), where m is the
-  length of string. Comparing to area code is O(1).
-  - extrace_codes: iterates over a list O(n). Regex is basically a string
+  length of string. Comparing to area code is O(1). Also, builds a default dict
+  that maps one to many hash table.
+  - extract_codes: iterates over a list O(n). Regex is basically a string
   matching. And the complexity can be O(m), where m is the length of string.
   - Find_unique: Basically iterating over a list of codes O(n) and addint it to a
   hash table O(1).
   - sort_and_print: Python's inplace sort method is O(n log n). Printing
   iterates over a list O(n).
   - Find_fix2fix: Iterates over a list O(n). Slicing of the string is O(m), m is
-  length of string.abs
+  length of string.
 """
 
 # (TODO): Do mobile phones in banglore area have specific prefix?
@@ -64,15 +65,22 @@ def extract_cx_rx(calls):
   caller_rx = {}
   for i in range(len(calls)):
     if calls[i][0][0:5] == "(080)":
-      caller_rx[calls[i][0]] = calls[i][1]
+      key = calls[i][0]
+      caller_rx.setdefault(key , []).append(calls[i][1])
   return caller_rx
 
 def extract_codes(rx_list):
   codes = []
   code_patt = re.compile(r'(\d+)')
   for k,v in rx_list.items():
-    result = code_patt.search(v)
-    codes.append(result.group(1))
+    for i in range(len(v)):
+      result = code_patt.search(v[i])
+      mob = result.group(0)[0]
+      mob = v[i][0]
+      if ((mob != '(')):
+        codes.append(result.group(0)[0:4])
+      else:
+        codes.append(result.group(0))
   return codes
 
 def find_unique(codes):
@@ -87,9 +95,10 @@ def sort_and_print (codes_unique):
 def find_fix2fix(rx_list):
   count_ = 0
   for k,v in rx_list.items():
-    if v[0:5] == "(080)":
-      count_ += 1
-  return (count_/len(rx_list)*100)
+    for i in range(len(v)):
+      if v[i][0:5] == "(080)":
+        count_ += 1
+  return (count_/len(calls)*100)
 
 def main():
   rx_list = extract_cx_rx(calls)
