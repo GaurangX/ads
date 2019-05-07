@@ -51,7 +51,7 @@ def find_telem(calls, texts):
 
   telem =[]
   for num in call_tx:
-    if num not in [call_rx + text]:
+    if num not in (call_rx + text):
       telem.append(num)
   return (telem)
 
