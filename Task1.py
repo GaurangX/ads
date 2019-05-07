@@ -61,7 +61,7 @@ def get_freq (texts, calls):
 def find_unique (phone_numbers):
   unique_pn = []
   for k,v in phone_numbers.items():
-    if v == 1:
+    if v >= 1:
       unique_pn.append(k)
   return unique_pn
 
