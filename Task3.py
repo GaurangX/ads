@@ -66,6 +66,7 @@ def extract_cx_rx(calls):
   for i in range(len(calls)):
     if calls[i][0][0:5] == "(080)":
       key = calls[i][0]
+      # Defaultdict maps one key to many hash table.
       caller_rx.setdefault(key , []).append(calls[i][1])
   return caller_rx
 
@@ -94,18 +95,20 @@ def sort_and_print (codes_unique):
 
 def find_fix2fix(rx_list):
   count_ = 0
+  count_tot_ = 0
   for k,v in rx_list.items():
     for i in range(len(v)):
       if v[i][0:5] == "(080)":
         count_ += 1
-  return (count_/len(calls)*100)
+    count_tot_ += len(v)
+  return (count_/count_tot_*100)
 
 def main():
   rx_list = extract_cx_rx(calls)
   codes = extract_codes(rx_list)
   codes_unique = find_unique(codes)
   sort_and_print(codes_unique)
-  find_fix2fix(rx_list)
+  #find_fix2fix(rx_list)
   print ("%.2f percent of calls from fixed lines in Bangalore are calls" \
          "to other fixed lines in Bangalore." % find_fix2fix(rx_list))
 
