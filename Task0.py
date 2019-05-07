@@ -21,16 +21,14 @@ Print messages:
 """
 """
 The run time complexity of accessing python list is O(1)
-get length is also O(1)
 """
 
 sxt = texts[0][0]
 rxt = texts[0][1]
 tt = texts[0][2]
 print ("First record of texts, %s texts %s at time %s" %(sxt, rxt, tt))
-total_calls = len(calls)-1
-sxc = calls[total_calls][0]
-rxc = calls[total_calls][1]
-tc = calls[total_calls][2]
-dc = calls[total_calls][3]
+sxc = calls[-1][0]
+rxc = calls[-1][1]
+tc = calls[-1][2]
+dc = calls[-1][3]
 print ("Last record of calls, %s calls %s at time %s lasting %s" %(sxc, rxc, tc, dc))
