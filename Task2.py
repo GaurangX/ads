@@ -24,9 +24,8 @@ Run time complexity:
 - Function call_duration iterates over list of calls. That for loop is O(n).
 - Within for loop the if conditions check for items in a dictionary. Python
 hashtable look up is O(1) profiler does not show any hash conflicts.
-- Find_longest function uses sorted. Unlike sort, sorted in python is not in place.
-Time complextiy of sorted is o(n log n). While it also requires O(n) space complexity.
-It is also iterating over a list O(n).
+- Find_longest function uses max on a list O(n) complexity. It is also
+iterating over a list O(n).
 """
 # (TODO): Technically texting is time spent on phone.
 #         How to account for texting duration?
@@ -47,9 +46,9 @@ def call_duration(calls):
   return call_tt
 
 def find_longest (call_tt):
-  longest_call = sorted(call_tt.values())
+  max_t = max (call_tt.values())
   for num,dur in call_tt.items():
-    if longest_call[len(longest_call)-1] == dur :
+    if max_t == dur :
       return (num, dur)
 
 def main():
