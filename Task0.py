@@ -22,13 +22,5 @@ Print messages:
 """
 The run time complexity of accessing python list is O(1)
 """
-
-sxt = texts[0][0]
-rxt = texts[0][1]
-tt = texts[0][2]
-print ("First record of texts, %s texts %s at time %s" %(sxt, rxt, tt))
-sxc = calls[-1][0]
-rxc = calls[-1][1]
-tc = calls[-1][2]
-dc = calls[-1][3]
-print ("Last record of calls, %s calls %s at time %s lasting %s" %(sxc, rxc, tc, dc))
+print ("First record of texts, {0} texts {1} at time {2}".format(*texts[0]))
+print ("Last record of calls, {0} calls {1} at time {2} lasting {3}".format(*calls[-1]))
