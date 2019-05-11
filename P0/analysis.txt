@@ -16,18 +16,18 @@ Task2:
 - call_duration iterates over list of calls. That for loop is O(n).
 - Within for loop the if conditions check for items in a dictionary. Python
 hashtable look up is O(1) profiler does not show any hash conflicts.
-- Find_longest function uses max over a list. Time complextiy of max operation
+- Find_longest function uses max over a list. Time complextiy of max operation 
 is o(n). It is also iterating over a list O(n).
 
 Task3:
 - extract_cx_rx: Iterates over a list of calls, which is O(n). On top of that
 the string slice is basically a copy and would do O(m), where m is the
 length of string. Comparing to area code is O(1). Builds a default dict representing
-one to many hash table.
+one to many hash table. 
 - extract_codes: iterates over a defaultdict O(n). Regex is basically a string
 matching. And the complexity can be O(m), where m is the length of string. The internal
-for loop is iterating over a list (value in default dict) O(p), where p is the length of
-the list.
+for loop is iterating over a list (value in default dict) O(p), where p is the length of 
+the list. 
 - Find_unique: Basically iterating over a list of codes O(n) and addint it to a
 hash table O(1).
 - sort_and_print: Python's inplace sort method is O(n log n). Printing
@@ -44,3 +44,11 @@ Task4:
   - unique_telem: Iterates over list O(n) and creates a hash table O(1).
   - sort_and_print: An in place sort operation over a list O(n log n). And the
   for loop iterates over a sorted list O(m).
+
+
+
+
+
+
+
+

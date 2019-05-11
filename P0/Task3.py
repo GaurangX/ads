@@ -76,10 +76,6 @@ def extract_codes(rx_list):
   for k,v in rx_list.items():
     for i in range(len(v)):
       result = code_patt.search(v[i])
-<<<<<<< HEAD:Task3.py
-      mob = result.group(0)[0]
-=======
->>>>>>> Changed directory structure:P0/Task3.py
       mob = v[i][0]
       if ((mob != '(')):
         codes.append(result.group(0)[0:4])
@@ -119,3 +115,6 @@ if __name__ == "__main__":
   main()
   #import profile
   #profile.run("main()")
+
+
+
